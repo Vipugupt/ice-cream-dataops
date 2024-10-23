@@ -1,0 +1,3 @@
+- name: 'icapi_ts_assets_contextualization'
+  interval: "57 0 * * *"
+  externalId: 'icapi_ts_assets_contextualization'
