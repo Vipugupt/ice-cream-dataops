@@ -11,13 +11,13 @@ workflowDefinition:
     retries: 3
     timeout: 3600
     onFailure: abortWorkflow
-  - externalId: create_assets_hierarchy
+  - externalId: create_asset_hierarchy
     type: transformation
     dependsOn: 
       - externalId: icapi_assets_extractor
     parameters:
       transformation:
-        externalId: create_assets_hierarchy
+        externalId: create_asset_hierarchy
         concurrencyPolicy: waitForCurrent
     retries: 3
     timeout: 3600
@@ -45,7 +45,7 @@ workflowDefinition:
   - externalId: icapi_ts_assets_contextualization
     type: transformation
     dependsOn: 
-      - externalId: create_assets_hierarchy
+      - externalId: create_asset_hierarchy
       - externalId: icapi_timeseries_extractor
     parameters:
       transformation:
