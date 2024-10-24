@@ -14,7 +14,7 @@ workflowDefinition:
   - externalId: create_assets_hierarchy
     type: transformation
     dependsOn: 
-      externalId: icapi_assets_extractor
+      - externalId: icapi_assets_extractor
     parameters:
       transformation:
         externalId: create_assets_hierarchy
@@ -34,7 +34,7 @@ workflowDefinition:
   - externalId: icapi_datapoints_extractor
     type: function
     dependsOn:
-      externalId: icapi_timeseries_extractor
+      - externalId: icapi_timeseries_extractor
     parameters:
       function:
         externalId: icapi_datapoints_extractor
@@ -45,8 +45,8 @@ workflowDefinition:
   - externalId: icapi_ts_assets_contextualization
     type: transformation
     dependsOn: 
-      externalId: create_assets_hierarchy
-      externalId: icapi_timeseries_extractor
+      - externalId: create_assets_hierarchy
+      - externalId: icapi_timeseries_extractor
     parameters:
       transformation:
         externalId: icapi_ts_assets_contextualization
@@ -57,8 +57,8 @@ workflowDefinition:
   - externalId: oee_timeseries
     type: function
     dependsOn: 
-      externalId: icapi_datapoints_extractor
-      externalId: icapi_ts_assets_contextualization
+      - externalId: icapi_datapoints_extractor
+      - externalId: icapi_ts_assets_contextualization
     parameters:
       function:
         externalId: oee_timeseries
